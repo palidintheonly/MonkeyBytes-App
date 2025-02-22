@@ -1,0 +1,22 @@
+{
+  "name": "bmd-bot",
+  "description": "An awesome bot made with Bot Maker for Discord!",
+  "author": "somebody",
+  "dependencies": {
+    "@discordjs/voice": "^0.18.0",
+    "@distube/ytdl-core": "^4.15.6",
+    "axios": "^1.7.9",
+    "corepack": "^0.30.0",
+    "ffmpeg": "^0.0.4",
+    "jimp": "^0.22.10",
+    "node-fetch": "^3.3.2",
+    "node-gyp": "^11.0.0",
+    "npm": "^11.0.0",
+    "oceanic.js": "^1.11.2",
+    "quick.db": "^9.1.7",
+    "replace-color": "^2.3.0",
+    "soundcloud-downloader": "^1.0.0",
+    "undici": "^7.2.0",
+    "yt-search": "^2.12.1"
+  }
+}

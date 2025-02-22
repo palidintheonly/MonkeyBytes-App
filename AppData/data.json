@@ -1,0 +1,2285 @@
+{
+  "commands": [
+    {
+      "name": "Purge-300",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Bulk Delete",
+          "file": "bulkDeleteMessages.js",
+          "data": {
+            "name": "Bulk Delete",
+            "user": {
+              "type": "any",
+              "value": ""
+            },
+            "channel": {
+              "type": "command",
+              "value": ""
+            },
+            "amount": "Maximum (300)",
+            "delete": "",
+            "include": "Nothing",
+            "keyword": "",
+            "reason": "/purge 300 command ",
+            "deletedCountStorage": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1718375215496
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "you have deleted [${tempVars('count')}] messages",
+            "actionRows": [],
+            "embeds": [],
+            "channel": {
+              "type": "command",
+              "value": ""
+            },
+            "replyToInteraction": true,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": false,
+            "dontSend": false,
+            "ephemeral": true,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            }
+          },
+          "id": 1719240122765
+        }
+      ],
+      "customId": 1718375207193,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": [
+          "ADMINISTRATOR"
+        ]
+      },
+      "parameters": [],
+      "description": "Purge 300",
+      "folder": [
+        1719772282275
+      ],
+      "color": null,
+      "goodies": {
+        "actionType": "slash",
+        "variables": {
+          "temporary": [],
+          "global": [],
+          "server": [],
+          "commandVars": [
+            "",
+            ""
+          ],
+          "thisServer": [],
+          "thisGlobal": []
+        }
+      }
+    },
+    {
+      "name": "Kick",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "You have kicked <@${tempVars('ID')}> (${tempVars('username')}) with reason of [ ${tempVars('Reason.kick')} ]",
+            "actionRows": [],
+            "embeds": [],
+            "channel": {
+              "type": "command",
+              "value": ""
+            },
+            "replyToInteraction": true,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": false,
+            "dontSend": false,
+            "ephemeral": true,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            }
+          },
+          "id": 1719259557548
+        },
+        {
+          "name": "Wait",
+          "file": "wait.js",
+          "data": {
+            "name": "Wait",
+            "timeUnit": "Seconds",
+            "time": "2"
+          },
+          "id": 1719259145587
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "",
+            "actionRows": [],
+            "embeds": [
+              {
+                "type": "embed",
+                "data": {
+                  "title": "_YOU HAVE BEEN KICKED_",
+                  "embedColor": "#ff1e00",
+                  "footerContent": "",
+                  "imageURL": "",
+                  "footerIconURL": "",
+                  "thumbnailURL": "",
+                  "authorName": "",
+                  "authorIcon": "",
+                  "description": "",
+                  "fields": [
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_USER_",
+                        "value": "<@${tempVars('ID')}>",
+                        "inline": false
+                      }
+                    },
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_USERNAME_",
+                        "value": "> ${tempVars('username')}",
+                        "inline": false
+                      }
+                    },
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_ID_",
+                        "value": "```${tempVars('ID')}```",
+                        "inline": false
+                      }
+                    },
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_REASON FOR KICK_",
+                        "value": "> ${tempVars('Reason.kick')}",
+                        "inline": false
+                      }
+                    }
+                  ],
+                  "url": "",
+                  "timestamp": "None",
+                  "customTimestamp": ""
+                }
+              }
+            ],
+            "channel": {
+              "type": "userID",
+              "value": "${tempVars('ID')}"
+            },
+            "replyToInteraction": false,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": false,
+            "dontSend": false,
+            "ephemeral": false,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            }
+          },
+          "id": 1719258368359
+        },
+        {
+          "name": "Wait",
+          "file": "wait.js",
+          "data": {
+            "name": "Wait",
+            "timeUnit": "Seconds",
+            "time": "2"
+          },
+          "id": 1719259130873
+        },
+        {
+          "name": "Kick Member",
+          "file": "kickMember.js",
+          "data": {
+            "name": "Kick Member",
+            "member": {
+              "type": "id",
+              "value": "${tempVars('ID')}"
+            },
+            "reason": "${tempVars('Reason.kick')}"
+          },
+          "id": 1718385641470
+        },
+        {
+          "name": "Wait",
+          "file": "wait.js",
+          "data": {
+            "name": "Wait",
+            "timeUnit": "Seconds",
+            "time": "2"
+          },
+          "id": 1719259150028
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "",
+            "actionRows": [],
+            "embeds": [
+              {
+                "type": "embed",
+                "data": {
+                  "title": "_MEMBER KICKED_",
+                  "embedColor": "#ff1e00",
+                  "footerContent": "",
+                  "imageURL": "",
+                  "footerIconURL": "",
+                  "thumbnailURL": "",
+                  "authorName": "Staff Data",
+                  "authorIcon": "",
+                  "description": "",
+                  "fields": [
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_USER_",
+                        "value": "<@${tempVars('ID')}>",
+                        "inline": false
+                      }
+                    },
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_USERNAME_",
+                        "value": "> ${tempVars('username')}",
+                        "inline": false
+                      }
+                    },
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_ID_",
+                        "value": "```${tempVars('ID')}```",
+                        "inline": false
+                      }
+                    },
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_REASON FOR KICK_",
+                        "value": "> ${tempVars('Reason.kick')}",
+                        "inline": false
+                      }
+                    }
+                  ],
+                  "url": "",
+                  "timestamp": "None",
+                  "customTimestamp": ""
+                }
+              }
+            ],
+            "channel": {
+              "type": "id",
+              "value": "1254885819286814770"
+            },
+            "replyToInteraction": false,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": false,
+            "dontSend": false,
+            "ephemeral": false,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            }
+          },
+          "id": 1719258864088
+        }
+      ],
+      "customId": 1718385633934,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Member ID",
+          "required": true,
+          "choices": [],
+          "storeAs": "ID",
+          "completion": false
+        }
+      ],
+      "description": "Kicks a member",
+      "folder": [
+        1719772282275
+      ],
+      "color": null
+    },
+    {
+      "name": "Unban",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Unban Member",
+          "file": "unbanMember.js",
+          "data": {
+            "name": "Unban Member",
+            "member": {
+              "type": "id",
+              "value": "${tempVars('ID')}"
+            },
+            "reason": ""
+          },
+          "id": 1718395051513
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "You have unbanned <@${tempVars('ID')}>",
+            "actionRows": [],
+            "embeds": [],
+            "channel": {
+              "type": "command",
+              "value": ""
+            },
+            "replyToInteraction": true,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": true,
+            "dontSend": false,
+            "ephemeral": true,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": false
+          },
+          "id": 1722363435103
+        }
+      ],
+      "customId": 1718395045984,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "enter user ID",
+          "required": true,
+          "choices": [],
+          "storeAs": "ID",
+          "completion": false
+        }
+      ],
+      "description": "Unban a member",
+      "folder": [
+        1719772282275
+      ]
+    },
+    {
+      "name": "Ban",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Ban Member",
+          "file": "banMember.js",
+          "data": {
+            "name": "Ban Member",
+            "member": {
+              "type": "id",
+              "value": "${tempVars('ID')}"
+            },
+            "reason": "${tempVars('reas')}",
+            "deleteHistory": {
+              "type": "none",
+              "value": ""
+            }
+          },
+          "id": 1718394793086
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "<@${tempVars('ID')}> has been banned because: ${tempVars('reas')}",
+            "actionRows": [],
+            "embeds": [],
+            "channel": {
+              "type": "command",
+              "value": ""
+            },
+            "replyToInteraction": true,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": true,
+            "dontSend": false,
+            "ephemeral": true,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": false
+          },
+          "id": 1722188253455
+        }
+      ],
+      "customId": 1718394711514,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "User ID",
+          "required": true,
+          "choices": [],
+          "storeAs": "ID",
+          "completion": false
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "reas",
+          "completion": false
+        }
+      ],
+      "description": "Ban a member",
+      "folder": [
+        1719772282275
+      ],
+      "color": null
+    },
+    {
+      "name": "Ping",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Get Bot Info",
+          "file": "getBotInfo.js",
+          "data": {
+            "name": "Get Bot Info",
+            "get": "Gateway Ping",
+            "store": {
+              "type": "temporary",
+              "value": "Gateway"
+            }
+          },
+          "id": 1740252035392
+        },
+        {
+          "name": "Get Bot Info",
+          "file": "getBotInfo.js",
+          "data": {
+            "name": "Get Bot Info",
+            "get": "REST Ping",
+            "store": {
+              "type": "temporary",
+              "value": "Rest"
+            }
+          },
+          "id": 1740252077620
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "Pong:\n\nRest: ${tempVars('Rest')}ms\n\nGateway: ${tempVars('Gateway')}ms",
+            "actionRows": [],
+            "embeds": [],
+            "channel": {
+              "type": "command",
+              "value": ""
+            },
+            "replyToInteraction": true,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "files": [],
+            "poll": [],
+            "silent": true,
+            "mentions": false,
+            "dontSend": false,
+            "ephemeral": true,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": false
+          },
+          "id": 1740252098374
+        }
+      ],
+      "customId": 1740251919769,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [],
+      "description": "Get the apps ping",
+      "folder": [
+        1719772282275
+      ]
+    },
+    {
+      "name": "POWER STATUS",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Get User Info",
+          "file": "getUserInfo.js",
+          "data": {
+            "name": "Get User Info",
+            "user": {
+              "type": "id",
+              "value": "1051503632677359686"
+            },
+            "get": {
+              "type": "username",
+              "value": ""
+            },
+            "store": {
+              "type": "temporary",
+              "value": "bot.userbname"
+            }
+          },
+          "id": 1726515224933
+        },
+        {
+          "name": "Get Server Info",
+          "file": "getGuildInfo.js",
+          "data": {
+            "name": "Get Server Info",
+            "guild": {
+              "type": "current",
+              "value": ""
+            },
+            "get": {
+              "type": "name",
+              "value": ""
+            },
+            "store": {
+              "type": "temporary",
+              "value": "server name"
+            }
+          },
+          "id": 1726515135403
+        },
+        {
+          "name": "Set Bot Activity",
+          "file": "setClientActivity.js",
+          "data": {
+            "name": "Set Bot Activity",
+            "status": "Online",
+            "activity": "Custom",
+            "activityName": "Welcome to ${tempVars('server name')}"
+          },
+          "id": 1726515171714
+        },
+        {
+          "name": "Wait",
+          "file": "wait.js",
+          "data": {
+            "name": "Wait",
+            "timeUnit": "Seconds",
+            "time": "30"
+          },
+          "id": 1726515335935
+        },
+        {
+          "name": "Set Bot Activity",
+          "file": "setClientActivity.js",
+          "data": {
+            "name": "Set Bot Activity",
+            "status": "Online",
+            "activity": "Custom",
+            "activityName": "My name is ${tempVars('bot.userbname')}, I am happy to help!"
+          },
+          "id": 1726515301422
+        },
+        {
+          "name": "Wait",
+          "file": "wait.js",
+          "data": {
+            "name": "Wait",
+            "timeUnit": "Seconds",
+            "time": "30"
+          },
+          "id": 1726515364384
+        }
+      ],
+      "customId": 1719777441477,
+      "eventFile": "bot_ready.js",
+      "eventData": [
+        "",
+        ""
+      ],
+      "folder": [],
+      "description": "Changing status when bot on(ready)"
+    },
+    {
+      "name": "join role(s)",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Add Role",
+          "file": "addRole.js",
+          "data": {
+            "name": "Add Role",
+            "member": {
+              "type": "tempVar",
+              "value": "mem"
+            },
+            "role": {
+              "type": "id",
+              "value": "1273675459418128406"
+            },
+            "reason": "MonkeyBytes | Join Roles"
+          },
+          "id": 1718477765833
+        },
+        {
+          "name": "Stop Actions",
+          "file": "stopRunningActions.js",
+          "data": {
+            "name": "Stop Actions"
+          },
+          "id": 1718478660827
+        }
+      ],
+      "customId": 1718477746332,
+      "eventFile": "member_join_guild.js",
+      "eventData": [
+        "mem",
+        ""
+      ],
+      "folder": [
+        1721849066028
+      ]
+    },
+    {
+      "name": "Delete-channel",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Delete Channel",
+          "file": "deleteChannel.js",
+          "data": {
+            "name": "Delete Channel",
+            "channel": {
+              "type": "command",
+              "value": ""
+            }
+          },
+          "id": 1721148817138
+        }
+      ],
+      "customId": 1721148813064,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [],
+      "description": "delete channel",
+      "folder": [
+        1721148789057
+      ]
+    },
+    {
+      "name": "Clone-del",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Clone Channel",
+          "file": "cloneChannel.js",
+          "data": {
+            "name": "Clone Channel",
+            "channel": {
+              "type": "command",
+              "value": ""
+            },
+            "store": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1721149324198
+        },
+        {
+          "name": "Delete Channel",
+          "file": "deleteChannel.js",
+          "data": {
+            "name": "Delete Channel",
+            "channel": {
+              "type": "command",
+              "value": ""
+            }
+          },
+          "id": 1721149337479
+        }
+      ],
+      "customId": 1721148874339,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [],
+      "description": "Clone and delete channel",
+      "folder": [
+        1721148789057
+      ]
+    },
+    {
+      "name": "create-channel",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Create Text Channel",
+          "file": "createChannel.js",
+          "data": {
+            "name": "Create Text Channel",
+            "channelName": "${tempVars('ch.nme')}",
+            "private": true,
+            "category": {
+              "type": "id",
+              "value": "${tempVars('cat.id')}"
+            },
+            "position": {
+              "type": "unset",
+              "value": ""
+            },
+            "topic": "${tempVars('ch.tpc')}",
+            "reason": "${tempVars('rea.on')}",
+            "store": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1721149403422
+        }
+      ],
+      "customId": 1721149398070,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Channel Name",
+          "required": true,
+          "choices": [],
+          "storeAs": "ch.nme",
+          "completion": false
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "description": "Category ID",
+          "required": true,
+          "choices": [],
+          "storeAs": "cat.id",
+          "completion": false
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "description": "Channel Topic",
+          "required": false,
+          "choices": [],
+          "storeAs": "ch.tpc",
+          "completion": false
+        }
+      ],
+      "description": "Create a Text Channel",
+      "folder": [
+        1721148789057
+      ]
+    },
+    {
+      "name": "Clone",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Clone Channel",
+          "file": "cloneChannel.js",
+          "data": {
+            "name": "Clone Channel",
+            "channel": {
+              "type": "command",
+              "value": ""
+            },
+            "store": {
+              "type": "temporary",
+              "value": "chan"
+            }
+          },
+          "id": 1721148646639
+        }
+      ],
+      "customId": 1721148631404,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [],
+      "description": "Clone channel",
+      "folder": [
+        1721148789057
+      ]
+    },
+    {
+      "name": "remove-role",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Remove Role",
+          "file": "removeRole.js",
+          "data": {
+            "name": "Remove Role",
+            "member": {
+              "type": "tempVar",
+              "value": "user"
+            },
+            "role": {
+              "type": "tempVar",
+              "value": "role"
+            },
+            "undefined": ""
+          },
+          "id": 1723404311885
+        }
+      ],
+      "customId": 1723404245395,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "user",
+          "type": "user",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "user",
+          "completion": false
+        },
+        {
+          "name": "role",
+          "type": "role",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "role",
+          "completion": false
+        }
+      ],
+      "description": "No Description",
+      "folder": [
+        1723404217881
+      ]
+    },
+    {
+      "name": "delete-role",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Delete Role",
+          "file": "deleteRole.js",
+          "data": {
+            "name": "Delete Role",
+            "role": {
+              "type": "tempVar",
+              "value": "role"
+            },
+            "reason": ""
+          },
+          "id": 1723404967160
+        }
+      ],
+      "customId": 1723404940317,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "role",
+          "type": "role",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "role",
+          "completion": false
+        }
+      ],
+      "description": "No Description",
+      "folder": [
+        1723404217881
+      ]
+    },
+    {
+      "name": "create-role",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Randomize HEX Color",
+          "file": "randomizeHex.js",
+          "data": {
+            "name": "Randomize HEX Color",
+            "store": {
+              "type": "temporary",
+              "value": "hex"
+            }
+          },
+          "id": 1723405127859
+        },
+        {
+          "name": "Create Role",
+          "file": "createRole.js",
+          "data": {
+            "name": "Create Role",
+            "color": "${tempVars('hex')}",
+            "roleName": "${tempVars('role.name')}",
+            "reason": "",
+            "hoist": true,
+            "mentionable": true,
+            "store": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1723405038100
+        }
+      ],
+      "customId": 1723405000906,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "rolename",
+          "type": "string",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "role.name",
+          "completion": false
+        }
+      ],
+      "description": "No Description",
+      "folder": [
+        1723404217881
+      ]
+    },
+    {
+      "name": "add-role",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Add Role",
+          "file": "addRole.js",
+          "data": {
+            "name": "Add Role",
+            "member": {
+              "type": "tempVar",
+              "value": "user"
+            },
+            "role": {
+              "type": "tempVar",
+              "value": "role"
+            },
+            "reason": ""
+          },
+          "id": 1723396750656
+        }
+      ],
+      "customId": 1723396254542,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "user",
+          "type": "user",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "user",
+          "completion": false,
+          "autocompletion": false,
+          "bound": {
+            "name": "Autocompletion",
+            "storeInputAs": {
+              "type": "temporary",
+              "value": "inp"
+            },
+            "storeInteractionAs": {
+              "type": "temporary",
+              "value": "auto"
+            },
+            "actions": [
+              {
+                "name": "Get Member Info",
+                "file": "getMemberInfo.js",
+                "data": {
+                  "name": "Get Member Info",
+                  "member": {
+                    "type": "id",
+                    "value": "${tempVars('inp')}"
+                  },
+                  "get": {
+                    "type": "name",
+                    "value": ""
+                  },
+                  "store": {
+                    "type": "temporary",
+                    "value": ""
+                  }
+                },
+                "id": 1723396340886
+              }
+            ],
+            "result": {
+              "type": "tempVar",
+              "value": "res"
+            }
+          }
+        },
+        {
+          "name": "role",
+          "type": "role",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "role",
+          "completion": false
+        }
+      ],
+      "description": "No Description",
+      "folder": [
+        1723404217881
+      ]
+    },
+    {
+      "name": "edit-role",
+      "type": "action",
+      "trigger": "slashCommand",
+      "actions": [
+        {
+          "name": "Edit Role",
+          "file": "editRole.js",
+          "data": {
+            "name": "${tempVars('name')}",
+            "category": {
+              "value": "",
+              "type": "unchanged"
+            },
+            "role": {
+              "type": "tempVar",
+              "value": "role"
+            },
+            "nameChange": "Change",
+            "colorChange": "Change",
+            "color": "#${tempVars('hex')}",
+            "positionChange": "Don't Change",
+            "position": "${tempVars('pos')}",
+            "icon": {
+              "type": "unchanged",
+              "value": ""
+            },
+            "hoisted": "Don't Change",
+            "mentionability": "Don't Change"
+          },
+          "id": 1723406046897
+        }
+      ],
+      "customId": 1723406024466,
+      "boundary": {
+        "worksIn": "guild",
+        "limits": []
+      },
+      "parameters": [
+        {
+          "name": "role",
+          "type": "role",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "role",
+          "completion": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "-",
+          "required": true,
+          "choices": [],
+          "storeAs": "name",
+          "completion": false
+        },
+        {
+          "name": "hex",
+          "type": "string",
+          "description": "enter hex without #",
+          "required": true,
+          "choices": [],
+          "storeAs": "hex",
+          "completion": false
+        }
+      ],
+      "description": "No Description",
+      "folder": [
+        1723404217881
+      ]
+    },
+    {
+      "name": "mn api",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Bulk Delete",
+          "file": "bulkDeleteMessages.js",
+          "data": {
+            "name": "Bulk Delete",
+            "user": {
+              "type": "any",
+              "value": ""
+            },
+            "channel": {
+              "type": "id",
+              "value": "1327024573446619269"
+            },
+            "amount": "Maximum (300)",
+            "delete": "",
+            "include": "Nothing",
+            "keyword": "",
+            "reason": "",
+            "deletedCountStorage": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1726161134870
+        },
+        {
+          "name": "Randomize HEX Color",
+          "file": "randomizeHex.js",
+          "data": {
+            "name": "Randomize HEX Color",
+            "store": {
+              "type": "temporary",
+              "value": "hex"
+            }
+          },
+          "id": 1725382380164
+        },
+        {
+          "name": "Get JSON From WebAPI",
+          "file": "getJSONFromWebAPI.js",
+          "data": {
+            "name": "Get JSON From WebAPI",
+            "url": "http://freepanel.crafters-island.com:4011/testing",
+            "headers": "",
+            "store": {
+              "type": "temporary",
+              "value": "api"
+            }
+          },
+          "id": 1725381166749
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.ukUnix",
+            "store": {
+              "type": "temporary",
+              "value": "ukUnix"
+            }
+          },
+          "id": 1726771013688
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.testimage2",
+            "store": {
+              "type": "temporary",
+              "value": "testimage2"
+            }
+          },
+          "id": 1726771161700
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.testText",
+            "store": {
+              "type": "temporary",
+              "value": "test.text"
+            }
+          },
+          "id": 1726771071049
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.testimage1",
+            "store": {
+              "type": "temporary",
+              "value": "testimage1"
+            }
+          },
+          "id": 1726771140678
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.avatar",
+            "store": {
+              "type": "temporary",
+              "value": "testingProfilePicture"
+            }
+          },
+          "id": 1726771180392
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.testingBotName",
+            "store": {
+              "type": "temporary",
+              "value": "testingBotName"
+            }
+          },
+          "id": 1726771198917
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "",
+            "actionRows": [
+              {
+                "type": "buttons",
+                "data": {
+                  "buttons": [
+                    {
+                      "type": "link",
+                      "data": {
+                        "label": "Endpoint Introduction",
+                        "link": "http://monkey-network.xyz/",
+                        "emojiName": "",
+                        "emojiID": "",
+                        "isEmojiAnimated": false
+                      }
+                    },
+                    {
+                      "type": "link",
+                      "data": {
+                        "label": "/testing endopint",
+                        "link": "http://us2.bot-hosting.net:21560/testing",
+                        "emojiName": "",
+                        "emojiID": "",
+                        "isEmojiAnimated": false
+                      }
+                    }
+                  ],
+                  "storeInteractionAs": {
+                    "type": "temporary",
+                    "value": "int"
+                  },
+                  "storeInteractionAuthorAs": {
+                    "type": "temporary",
+                    "value": "user"
+                  }
+                }
+              }
+            ],
+            "embeds": [
+              {
+                "type": "embed",
+                "data": {
+                  "title": "${tempVars('test.text')}",
+                  "embedColor": "${tempVars('hex')}",
+                  "footerContent": "MonkeyBytes API - Part of Monkey Network",
+                  "imageURL": "${tempVars('testimage2')}",
+                  "footerIconURL": "${tempVars('testingProfilePicture')}",
+                  "thumbnailURL": "${tempVars('testimage1')}",
+                  "authorName": "${tempVars('testingBotName')}",
+                  "authorIcon": "${tempVars('testingProfilePicture')}",
+                  "description": " <t:${tempVars('ukUnix')}:F> |  <t:${tempVars('ukUnix')}:R>  ",
+                  "fields": [],
+                  "url": "",
+                  "timestamp": "None",
+                  "customTimestamp": ""
+                }
+              }
+            ],
+            "channel": {
+              "type": "id",
+              "value": "1327024573446619269"
+            },
+            "replyToInteraction": false,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": true,
+            "dontSend": false,
+            "ephemeral": false,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": true
+          },
+          "id": 1726159449732
+        }
+      ],
+      "customId": 1725381142286,
+      "eventFile": "setInterval.js",
+      "eventData": [
+        "300",
+        ""
+      ],
+      "folder": [
+        1728403044923
+      ],
+      "description": "using our api"
+    },
+    {
+      "name": "dog.ceo",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Bulk Delete",
+          "file": "bulkDeleteMessages.js",
+          "data": {
+            "name": "Bulk Delete",
+            "user": {
+              "type": "any",
+              "value": ""
+            },
+            "channel": {
+              "type": "id",
+              "value": "1327024577372749926"
+            },
+            "amount": "Maximum (300)",
+            "delete": "",
+            "include": "Nothing",
+            "keyword": "",
+            "reason": "",
+            "deletedCountStorage": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1728416865665
+        },
+        {
+          "name": "Randomize HEX Color",
+          "file": "randomizeHex.js",
+          "data": {
+            "name": "Randomize HEX Color",
+            "store": {
+              "type": "temporary",
+              "value": "hex"
+            }
+          },
+          "id": 1728416865666
+        },
+        {
+          "name": "Get Date Info",
+          "file": "getDateInfo.js",
+          "data": {
+            "name": "Get Date Info",
+            "date": {
+              "type": "local",
+              "value": ""
+            },
+            "get": "Normalized Date",
+            "store": {
+              "type": "temporary",
+              "value": "ND"
+            }
+          },
+          "id": 1728403670855
+        },
+        {
+          "name": "Get JSON From WebAPI",
+          "file": "getJSONFromWebAPI.js",
+          "data": {
+            "name": "Get JSON From WebAPI",
+            "url": "https://dog.ceo/api/breeds/image/random",
+            "headers": "",
+            "store": {
+              "type": "temporary",
+              "value": "api"
+            }
+          },
+          "id": 1728416865667
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.message",
+            "store": {
+              "type": "temporary",
+              "value": "dog.r.image"
+            }
+          },
+          "id": 1728416865668
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.status",
+            "store": {
+              "type": "temporary",
+              "value": "status"
+            }
+          },
+          "id": 1728403743653
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "",
+            "actionRows": [
+              {
+                "type": "buttons",
+                "data": {
+                  "buttons": [
+                    {
+                      "type": "link",
+                      "data": {
+                        "label": "Endpoint Introduction",
+                        "link": "https://dog.ceo/dog-api/",
+                        "emojiName": "",
+                        "emojiID": "",
+                        "isEmojiAnimated": false
+                      }
+                    },
+                    {
+                      "type": "link",
+                      "data": {
+                        "label": "/api/breeds/image/random",
+                        "link": "https://dog.ceo/api/breeds/image/random",
+                        "emojiName": "",
+                        "emojiID": "",
+                        "isEmojiAnimated": false
+                      }
+                    }
+                  ],
+                  "storeInteractionAs": {
+                    "type": "temporary",
+                    "value": "int"
+                  },
+                  "storeInteractionAuthorAs": {
+                    "type": "temporary",
+                    "value": "user"
+                  }
+                }
+              }
+            ],
+            "embeds": [
+              {
+                "type": "embed",
+                "data": {
+                  "title": "dog.ceo API",
+                  "embedColor": "${tempVars('hex')}",
+                  "footerContent": "dog.ceo | ${tempVars('status')}",
+                  "imageURL": "${tempVars('dog.r.image')}",
+                  "footerIconURL": "${tempVars('dog.r.image')}",
+                  "thumbnailURL": "",
+                  "authorName": "dog.ceo",
+                  "authorIcon": "${tempVars('dog.r.image')}",
+                  "description": " <t:${tempVars('ND')}:F> |  <t:${tempVars('ND')}:R>  ",
+                  "fields": [],
+                  "url": "https://dog.ceo/dog-api/",
+                  "timestamp": "None",
+                  "customTimestamp": ""
+                }
+              }
+            ],
+            "channel": {
+              "type": "id",
+              "value": "1327024577372749926"
+            },
+            "replyToInteraction": false,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": true,
+            "dontSend": false,
+            "ephemeral": false,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": true
+          },
+          "id": 1728416865669
+        }
+      ],
+      "customId": 1728403064558,
+      "eventFile": "setInterval.js",
+      "eventData": [
+        "300",
+        ""
+      ],
+      "folder": [
+        1728403044923
+      ],
+      "description": "liked by us"
+    },
+    {
+      "name": "randomfox.ca",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Bulk Delete",
+          "file": "bulkDeleteMessages.js",
+          "data": {
+            "name": "Bulk Delete",
+            "user": {
+              "type": "any",
+              "value": ""
+            },
+            "channel": {
+              "type": "id",
+              "value": "1327024578639302697"
+            },
+            "amount": "Maximum (300)",
+            "delete": "",
+            "include": "Nothing",
+            "keyword": "",
+            "reason": "",
+            "deletedCountStorage": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1728416865670
+        },
+        {
+          "name": "Randomize HEX Color",
+          "file": "randomizeHex.js",
+          "data": {
+            "name": "Randomize HEX Color",
+            "store": {
+              "type": "temporary",
+              "value": "hex"
+            }
+          },
+          "id": 1728416865671
+        },
+        {
+          "name": "Get Date Info",
+          "file": "getDateInfo.js",
+          "data": {
+            "name": "Get Date Info",
+            "date": {
+              "type": "local",
+              "value": ""
+            },
+            "get": "Normalized Date",
+            "store": {
+              "type": "temporary",
+              "value": "ND"
+            }
+          },
+          "id": 1728416865672
+        },
+        {
+          "name": "Get JSON From WebAPI",
+          "file": "getJSONFromWebAPI.js",
+          "data": {
+            "name": "Get JSON From WebAPI",
+            "url": "https://randomfox.ca/floof/",
+            "headers": "",
+            "store": {
+              "type": "temporary",
+              "value": "api"
+            }
+          },
+          "id": 1728416865673
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.image",
+            "store": {
+              "type": "temporary",
+              "value": "fox.image"
+            }
+          },
+          "id": 1728416865674
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.link",
+            "store": {
+              "type": "temporary",
+              "value": "fox.link"
+            }
+          },
+          "id": 1728416865675
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "",
+            "actionRows": [
+              {
+                "type": "buttons",
+                "data": {
+                  "buttons": [
+                    {
+                      "type": "link",
+                      "data": {
+                        "label": "Endpoint Introduction",
+                        "link": "https://randomfox.ca/",
+                        "emojiName": "",
+                        "emojiID": "",
+                        "isEmojiAnimated": false
+                      }
+                    },
+                    {
+                      "type": "link",
+                      "data": {
+                        "label": "/floof",
+                        "link": "https://randomfox.ca/floof/",
+                        "emojiName": "",
+                        "emojiID": "",
+                        "isEmojiAnimated": false
+                      }
+                    }
+                  ],
+                  "storeInteractionAs": {
+                    "type": "temporary",
+                    "value": "int"
+                  },
+                  "storeInteractionAuthorAs": {
+                    "type": "temporary",
+                    "value": "user"
+                  }
+                }
+              }
+            ],
+            "embeds": [
+              {
+                "type": "embed",
+                "data": {
+                  "title": "randomfox.ca API",
+                  "embedColor": "${tempVars('hex')}",
+                  "footerContent": "randomfox.ca | ${tempVars('fox.link')}",
+                  "imageURL": "${tempVars('fox.image')}",
+                  "footerIconURL": "${tempVars('fox.image')}",
+                  "thumbnailURL": "",
+                  "authorName": "randomfox.ca",
+                  "authorIcon": "${tempVars('fox.image')}",
+                  "description": " <t:${tempVars('ND')}:F> |  <t:${tempVars('ND')}:R>  ",
+                  "fields": [],
+                  "url": "${tempVars('fox.link')}",
+                  "timestamp": "None",
+                  "customTimestamp": ""
+                }
+              }
+            ],
+            "channel": {
+              "type": "id",
+              "value": "1327024578639302697"
+            },
+            "replyToInteraction": false,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": true,
+            "dontSend": false,
+            "ephemeral": false,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": true
+          },
+          "id": 1728416865676
+        }
+      ],
+      "customId": 1728416284958,
+      "eventFile": "setInterval.js",
+      "eventData": [
+        "300",
+        ""
+      ],
+      "folder": [
+        1728403044923
+      ],
+      "description": "liked by us"
+    },
+    {
+      "name": "cats - SRA",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Bulk Delete",
+          "file": "bulkDeleteMessages.js",
+          "data": {
+            "name": "Bulk Delete",
+            "user": {
+              "type": "any",
+              "value": ""
+            },
+            "channel": {
+              "type": "id",
+              "value": "1327024579801256038"
+            },
+            "amount": "Maximum (300)",
+            "delete": "",
+            "include": "Nothing",
+            "keyword": "",
+            "reason": "",
+            "deletedCountStorage": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1736455582130
+        },
+        {
+          "name": "Randomize HEX Color",
+          "file": "randomizeHex.js",
+          "data": {
+            "name": "Randomize HEX Color",
+            "store": {
+              "type": "temporary",
+              "value": "hex"
+            }
+          },
+          "id": 1736455582131
+        },
+        {
+          "name": "Get Date Info",
+          "file": "getDateInfo.js",
+          "data": {
+            "name": "Get Date Info",
+            "date": {
+              "type": "local",
+              "value": ""
+            },
+            "get": "Normalized Date",
+            "store": {
+              "type": "temporary",
+              "value": "ND"
+            }
+          },
+          "id": 1736455582132
+        },
+        {
+          "name": "Randomize Number",
+          "file": "randomizeNumber.js",
+          "data": {
+            "name": "Randomize Number",
+            "firstNumber": "1",
+            "secondNumber": "40",
+            "store": {
+              "type": "temporary",
+              "value": "cat.num"
+            }
+          },
+          "id": 1736455198395
+        },
+        {
+          "name": "Get JSON From WebAPI",
+          "file": "getJSONFromWebAPI.js",
+          "data": {
+            "name": "Get JSON From WebAPI",
+            "url": "https://some-random-api.com/img/cat",
+            "headers": "",
+            "store": {
+              "type": "temporary",
+              "value": "api"
+            }
+          },
+          "id": 1736455582133
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "api"
+            },
+            "path": "$.link",
+            "store": {
+              "type": "temporary",
+              "value": "sra.cat"
+            }
+          },
+          "id": 1736455582134
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "",
+            "actionRows": [
+              {
+                "type": "buttons",
+                "data": {
+                  "buttons": [
+                    {
+                      "type": "link",
+                      "data": {
+                        "label": "Documentation",
+                        "link": "https://some-random-api.com/docs/animal#cat",
+                        "emojiName": "",
+                        "emojiID": "",
+                        "isEmojiAnimated": false
+                      }
+                    },
+                    {
+                      "type": "link",
+                      "data": {
+                        "label": "/animal/cat",
+                        "link": "https://some-random-api.com/animal/cat",
+                        "emojiName": "",
+                        "emojiID": "",
+                        "isEmojiAnimated": false
+                      }
+                    }
+                  ],
+                  "storeInteractionAs": {
+                    "type": "temporary",
+                    "value": "int"
+                  },
+                  "storeInteractionAuthorAs": {
+                    "type": "temporary",
+                    "value": "user"
+                  }
+                }
+              }
+            ],
+            "embeds": [
+              {
+                "type": "embed",
+                "data": {
+                  "title": "Cat Image",
+                  "embedColor": "${tempVars('hex')}",
+                  "footerContent": "https://some-random-api.com/img/cat",
+                  "imageURL": "${tempVars('sra.cat')}",
+                  "footerIconURL": "${tempVars('sra.cat')}",
+                  "thumbnailURL": "",
+                  "authorName": "SRA - Cats",
+                  "authorIcon": "${tempVars('sra.cat')}",
+                  "description": " <t:${tempVars('ND')}:F> |  <t:${tempVars('ND')}:R>  ",
+                  "fields": [],
+                  "url": "${tempVars('sra.cat')}",
+                  "timestamp": "None",
+                  "customTimestamp": ""
+                }
+              }
+            ],
+            "channel": {
+              "type": "id",
+              "value": "1327024579801256038"
+            },
+            "replyToInteraction": false,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": true,
+            "dontSend": false,
+            "ephemeral": false,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": true
+          },
+          "id": 1736455582136
+        }
+      ],
+      "customId": 1736455160578,
+      "eventFile": "setInterval.js",
+      "eventData": [
+        "300",
+        ""
+      ],
+      "folder": [
+        1728403044923
+      ],
+      "description": "liked by us"
+    },
+    {
+      "name": "say to chan",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "🔔 **Hear ye, hear ye!** By decree of our digital liege lord 👑, a momentous proclamation is upon us!\n\n📜 **Update the First – A New Dawn!** 📜\nLet it be known that this heralds the inception of a novel epoch for the esteemed MonkeyBytes App 🚀, as we commence a voyage of unceasing innovation and refinement, ensuring a resplendent future for all denizens of our digital dominion.\n\n📢 **The Proclamation of Updates**\nHenceforth, let all subjects be apprised of the latest advancements in our noble quest for innovation:\n\n🆕 **A Dedicated Updates Channel Established** – A consecrated space hath been wrought where all forthcoming MonkeyBytes proclamations shall be declared!\n\n🌐 **API Discord Channel URL Renewed** – The portal to our fellowship hath been rejuvenated, ensuring ease of ingress for all seekers of wisdom.\n\n🛠 **Obsolete App Events Removed** – That which hath aged and withered hath been cast aside, paving the way for a grand reconstruction from the very foundation!\n\n🔤 **Letter Casing on Commands Refined** – Precision and lucidity reign supreme as we perfect our hallowed incantations.\n\n📡 **The /Ping Command Instituted** – A puissant new tool now existeth, permitting thee to measure the latency betwixt our servers and thine esteemed presence.\n\n⚙️ **Member Join Roles Rectified** – The venerable Sapphire shall henceforth oversee this charge, ensuring all new members are fittingly welcomed into our realm.\n\n🔥 **Our Noble Commitment**\nWith great pride, we persist in refining and enhancing MonkeyBytes, delivering potent APIs to empower thy projects 💻 and ignite the flames of progress throughout our ever-expanding dominion.\n\n🚀 **May our progress be swift, our code be clean, and our kingdom ever-thriving!**\n",
+            "actionRows": [],
+            "embeds": [],
+            "channel": {
+              "type": "id",
+              "value": "1342928913646620908"
+            },
+            "replyToInteraction": false,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": false,
+            "dontSend": false,
+            "ephemeral": false,
+            "updateMessage": {
+              "type": "none",
+              "value": ""
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": false
+          },
+          "id": 1728399553856
+        }
+      ],
+      "customId": 1728399525777,
+      "eventFile": "nothing.js",
+      "eventData": [
+        "",
+        ""
+      ],
+      "folder": [
+        1740249192777
+      ]
+    },
+    {
+      "name": "create txt chan",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Create Text Channel",
+          "file": "createChannel.js",
+          "data": {
+            "name": "Create Text Channel",
+            "channelName": "cat-game",
+            "private": false,
+            "category": {
+              "type": "none",
+              "value": "1327024559324663878"
+            },
+            "position": {
+              "type": "unset",
+              "value": ""
+            },
+            "topic": "Cat game, here for a short stay",
+            "reason": "",
+            "store": {
+              "type": "temporary",
+              "value": ""
+            }
+          },
+          "id": 1740249250986
+        }
+      ],
+      "customId": 1740249204120,
+      "eventFile": "none.js",
+      "eventData": [
+        "",
+        ""
+      ],
+      "folder": [
+        1740249192777
+      ]
+    }
+  ],
+  "prjSrc": "R:\\Discord Apps\\MonkeyBytes-app",
+  "btk": "",
+  "prefix": "^",
+  "name": "MonkeyBytes",
+  "color": "rgb(0,0,0)",
+  "structureType": 1,
+  "collapsed": false,
+  "folders": {
+    "1719772282275": {
+      "name": "moderation",
+      "color": null,
+      "closed": true
+    },
+    "1721148789057": {
+      "name": "channel tools",
+      "color": null,
+      "closed": true
+    },
+    "1721849066028": {
+      "name": "Welcome gate",
+      "color": null,
+      "closed": false
+    },
+    "1723404217881": {
+      "name": "Role Control",
+      "color": null,
+      "closed": true
+    },
+    "1728403044923": {
+      "name": "api's",
+      "color": null,
+      "closed": true
+    },
+    "1740249192777": {
+      "name": "server stuff",
+      "color": null,
+      "closed": false
+    }
+  },
+  "intents": {
+    "ALL": true
+  }
+}
