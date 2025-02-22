@@ -127,7 +127,7 @@ module.exports = {
       bridge.store(values.popularity, data.popularity);
       bridge.store(
         values.synopsis,
-        data.synopsis.replace("\n", "").replace("[Written by MAL Rewrite]", "")
+        data.synopsis.replace(/\n/g, "").replace(/\[Written by MAL Rewrite\]/g, "")
       );
       bridge.store(values.release, data.year);
     });
