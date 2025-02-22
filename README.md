@@ -17,18 +17,5 @@ Verily, the MonkeyBytes API Bot is a digital squire, designed to assist thee in 
 - **Built with Node.js**: The bot is crafted with the power of **Node.js**, ensuring it is both swift and scalable, ready to serve thy needs in times of peace and war.
 - **Empowered by DBM**: The bot is further enhanced by the might of **DBM**, allowing for easy customization and deployment, even for those who are but humble squires in the art of coding.
 
-## 🏞️ A Tale of Usage
 
-To invoke the powers of the MonkeyBytes API Bot, thou must first install it within thy kingdom (or repository, as the common folk doth call it). Once installed, thou mayest summon the bot with the following incantation:
-
-```javascript
-const MonkeyBytesBot = require('monkeybytes-bot');
-
-const bot = new MonkeyBytesBot({
-  apiKey: 'thy_secret_key',
-  dbmConfig: 'thy_dbm_settings'
-});
-
-bot.fetchData('thy_desired_resource')
-  .then(data => console.log(data))
-  .catch(err => console.error('Alas! An error hath occurred:', err));
+Love MonkeyBytes 
