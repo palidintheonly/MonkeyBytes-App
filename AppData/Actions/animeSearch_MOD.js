@@ -108,7 +108,7 @@ module.exports = {
   async run(values, interaction, client, bridge) {
     const query = bridge.transf(values.animeSearch);
     await fetch(
-      `https://api.jikan.moe/v4/anime?q=${query.replace(" ", "%20")}&sfw`
+      `https://api.jikan.moe/v4/anime?q=${query.replace(/ /g, "%20")}&sfw`
     ).then(async (response) => {
       const res = await response.json();
       let data = res.data[0];
