@@ -912,6 +912,7 @@ try {
               };
 
               let formattedText = text;
+              formattedText = formattedText.replace(/\\/g, '\\\\'); // Escape backslashes
               formattedText = formattedText.replace(/`/g, '\\`');   // Escape backticks
 
               const evaluatedText = eval("`" + formattedText + "`");

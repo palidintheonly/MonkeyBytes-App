@@ -108,7 +108,7 @@ module.exports = {
   async run(values, interaction, client, bridge) {
     const query = bridge.transf(values.animeSearch);
     await fetch(
-      `https://api.jikan.moe/v4/anime?q=${query.replace(" ", "%20")}&sfw`
+      `https://api.jikan.moe/v4/anime?q=${query.replace(/ /g, "%20")}&sfw`
     ).then(async (response) => {
       const res = await response.json();
       let data = res.data[0];
@@ -127,7 +127,7 @@ module.exports = {
       bridge.store(values.popularity, data.popularity);
       bridge.store(
         values.synopsis,
-        data.synopsis.replace("\n", "").replace("[Written by MAL Rewrite]", "")
+        data.synopsis.replace(/\n/g, "").replace(/\[Written by MAL Rewrite\]/g, "")
       );
       bridge.store(values.release, data.year);
     });
