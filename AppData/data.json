@@ -1422,7 +1422,7 @@
                       "type": "link",
                       "data": {
                         "label": "Endpoint Introduction",
-                        "link": "http://monkey-network.xyz/",
+                        "link": "freepanel.crafters-island.com:4011",
                         "emojiName": "",
                         "emojiID": "",
                         "isEmojiAnimated": false
@@ -1432,7 +1432,7 @@
                       "type": "link",
                       "data": {
                         "label": "/testing endopint",
-                        "link": "http://us2.bot-hosting.net:21560/testing",
+                        "link": "http://freepanel.crafters-island.com:4011/testing",
                         "emojiName": "",
                         "emojiID": "",
                         "isEmojiAnimated": false
@@ -1996,20 +1996,6 @@
           "id": 1736455582132
         },
         {
-          "name": "Randomize Number",
-          "file": "randomizeNumber.js",
-          "data": {
-            "name": "Randomize Number",
-            "firstNumber": "1",
-            "secondNumber": "40",
-            "store": {
-              "type": "temporary",
-              "value": "cat.num"
-            }
-          },
-          "id": 1736455198395
-        },
-        {
           "name": "Get JSON From WebAPI",
           "file": "getJSONFromWebAPI.js",
           "data": {
@@ -2146,6 +2132,176 @@
       "description": "liked by us"
     },
     {
+      "name": "facts-bird",
+      "type": "event",
+      "trigger": "event",
+      "actions": [
+        {
+          "name": "Get Message",
+          "file": "getMessage.js",
+          "data": {
+            "name": "Get Message",
+            "channel": {
+              "type": "id",
+              "value": "1344370009102618666"
+            },
+            "messageID": "1344374938655658056",
+            "store": {
+              "type": "temporary",
+              "value": "e.msg"
+            }
+          },
+          "id": 1740594362664
+        },
+        {
+          "name": "Randomize HEX Color",
+          "file": "randomizeHex.js",
+          "data": {
+            "name": "Randomize HEX Color",
+            "store": {
+              "type": "temporary",
+              "value": "hex"
+            }
+          },
+          "id": 1740600111560
+        },
+        {
+          "name": "Get Date Info",
+          "file": "getDateInfo.js",
+          "data": {
+            "name": "Get Date Info",
+            "date": {
+              "type": "local",
+              "value": ""
+            },
+            "get": "Normalized Date",
+            "store": {
+              "type": "temporary",
+              "value": "ND"
+            }
+          },
+          "id": 1740600111561
+        },
+        {
+          "name": "Get JSON From WebAPI",
+          "file": "getJSONFromWebAPI.js",
+          "data": {
+            "name": "Get JSON From WebAPI",
+            "url": "https://some-random-api.com/facts/bird",
+            "headers": "",
+            "store": {
+              "type": "temporary",
+              "value": "text-api"
+            }
+          },
+          "id": 1740600111562
+        },
+        {
+          "name": "Json Path",
+          "file": "jsonPath_MOD.js",
+          "data": {
+            "name": "Json Path",
+            "json": {
+              "type": "tempVar",
+              "value": "text-api"
+            },
+            "path": "$.fact",
+            "store": {
+              "type": "temporary",
+              "value": "rten-txt-result"
+            }
+          },
+          "id": 1740600111563
+        },
+        {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "name": "Send Message",
+            "messageContent": "",
+            "actionRows": [],
+            "embeds": [
+              {
+                "type": "embed",
+                "data": {
+                  "title": "Facts - Birds",
+                  "embedColor": "${tempVars('hex')}",
+                  "footerContent": "",
+                  "imageURL": "",
+                  "footerIconURL": "",
+                  "thumbnailURL": "",
+                  "authorName": "",
+                  "authorIcon": "",
+                  "description": "",
+                  "fields": [
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "_Did You Know?_",
+                        "value": "> `${tempVars('rten-txt-result')}`",
+                        "inline": true
+                      }
+                    },
+                    {
+                      "type": "field",
+                      "data": {
+                        "title": "> <t:${tempVars('ND')}:F> |  <t:${tempVars('ND')}:R>",
+                        "value": "\n\n\n\n",
+                        "inline": false
+                      }
+                    }
+                  ],
+                  "url": "https://some-random-api.com/facts/bird",
+                  "timestamp": "None",
+                  "customTimestamp": "${tempVars('ND')}"
+                }
+              }
+            ],
+            "channel": {
+              "type": "id",
+              "value": "1344370009102618666"
+            },
+            "replyToInteraction": false,
+            "storeAs": {
+              "value": "",
+              "type": "temporary"
+            },
+            "options": [
+              {
+                "type": "options"
+              }
+            ],
+            "attachments": [],
+            "poll": [],
+            "mentions": false,
+            "dontSend": false,
+            "ephemeral": false,
+            "updateMessage": {
+              "type": "tempVar",
+              "value": "e.msg"
+            },
+            "updateContent": false,
+            "updateComponents": false,
+            "updateEmbeds": false,
+            "updateAttachments": true,
+            "files": [],
+            "silent": false
+          },
+          "id": 1740600111564
+        }
+      ],
+      "customId": 1740592901484,
+      "eventFile": "setInterval.js",
+      "eventData": [
+        "300",
+        ""
+      ],
+      "folder": [
+        1728403044923
+      ],
+      "description": "text apis"
+    },
+    {
       "name": "say to chan",
       "type": "event",
       "trigger": "event",
@@ -2209,18 +2365,18 @@
           "file": "createChannel.js",
           "data": {
             "name": "Create Text Channel",
-            "channelName": "cat-game",
+            "channelName": "facts-birds",
             "private": false,
             "category": {
-              "type": "none",
-              "value": "1327024559324663878"
+              "type": "id",
+              "value": "1344369422558826546"
             },
             "position": {
               "type": "unset",
               "value": ""
             },
-            "topic": "Cat game, here for a short stay",
-            "reason": "",
+            "topic": "Bird Facts",
+            "reason": "New creations ",
             "store": {
               "type": "temporary",
               "value": ""
@@ -2230,7 +2386,7 @@
         }
       ],
       "customId": 1740249204120,
-      "eventFile": "none.js",
+      "eventFile": "nothing.js",
       "eventData": [
         "",
         ""
@@ -2261,7 +2417,7 @@
     "1721849066028": {
       "name": "Welcome gate",
       "color": null,
-      "closed": false
+      "closed": true
     },
     "1723404217881": {
       "name": "Role Control",
@@ -2271,7 +2427,7 @@
     "1728403044923": {
       "name": "api's",
       "color": null,
-      "closed": true
+      "closed": false
     },
     "1740249192777": {
       "name": "server stuff",

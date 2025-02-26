@@ -923,7 +923,7 @@ try {
         if (!bridge.data.invoker.bridge) {
           bridge.data.invoker.bridge = bridge
         }
-        
+
         for (let action in cmdActions) {
           if (!!cmdActions[action]) {
             /* See If The Thing Is Meant To Keep Going! */
@@ -1711,3 +1711,4 @@ try {
     colors.Reset,
   );
 }
+//end
