@@ -5,7 +5,7 @@
   "dependencies": {
     "@discordjs/voice": "^0.18.0",
     "@distube/ytdl-core": "^4.15.6",
-    "axios": "^1.7.9",
+    "axios": "^1.8.2",
     "corepack": "^0.30.0",
     "ffmpeg": "^0.0.4",
     "jimp": "^0.22.10",
